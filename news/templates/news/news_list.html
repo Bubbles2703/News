@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Список новостей</h1>
+    {% for item in news %}
+        <h2><a href="{% url 'news_detail' item.id %}">{{ item.title }}</a></h2>
+        <p>{{ item.content|truncatechars:100 }}</p>
+    {% endfor %}
+</body>
+</html>
